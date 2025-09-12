@@ -5,33 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お申し込みありがとうございました - Invy紹介システム</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            fetch('//stg.invy.jp/rest/report/addto/spyder1211', { method: 'GET' });
-            var date1 = new Date();
-            var date2 = null;
-            var t1 = date1.getTime();
-            var t2 = 0;
-            var sleep = 0;
-            while (sleep <= 500) {
-                date2 = new Date();
-                t2 = date2.getTime();
-                sleep = t2 - t1;
-            }
-        });
-    </script>
     <script type="text/javascript">
         function getUrlParameter(name) {
             var urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name) || '';
         }
-      
-        var p = { ci:'spyder1211',mi:'invy_register', ta:'', pt:'', rm:'', tokey: getUrlParameter('tokey'), suid: getUrlParameter('suid'), code: getUrlParameter('code') };
-        var s = document.createElement("img");
-        s.async = true;
-        s.src = encodeURI('//stg.invy.jp/rest/report/addcv?ci='+p.ci+'&mi='+p.mi+'&ta='+p.ta+'&pt='+p.pt+'&rm='+p.rm+'&tokey='+p.tokey+'&suid='+p.suid+'&code='+p.code);
-        var s0 = document.getElementsByTagName('script')[0];
-        s0.parentNode.insertBefore(s, s0);
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // First call addto
+            fetch('//stg.invy.jp/rest/report/addto/spyder1211', { method: 'GET' })
+                .then(function() {
+                    // Then call addcv after addto completes
+                    var p = { ci:'spyder1211',mi:'invy_register', ta:'', pt:'', rm:'', tokey: getUrlParameter('tokey'), suid: getUrlParameter('suid'), code: getUrlParameter('code') };
+                    var s = document.createElement("img");
+                    s.async = true;
+                    s.src = encodeURI('//stg.invy.jp/rest/report/addcv?ci='+p.ci+'&mi='+p.mi+'&ta='+p.ta+'&pt='+p.pt+'&rm='+p.rm+'&tokey='+p.tokey+'&suid='+p.suid+'&code='+p.code);
+                    var s0 = document.getElementsByTagName('script')[0];
+                    s0.parentNode.insertBefore(s, s0);
+                })
+                .catch(function(error) {
+                    // If addto fails, still call addcv
+                    console.warn('addto failed:', error);
+                    var p = { ci:'spyder1211',mi:'invy_register', ta:'', pt:'', rm:'', tokey: getUrlParameter('tokey'), suid: getUrlParameter('suid'), code: getUrlParameter('code') };
+                    var s = document.createElement("img");
+                    s.async = true;
+                    s.src = encodeURI('//stg.invy.jp/rest/report/addcv?ci='+p.ci+'&mi='+p.mi+'&ta='+p.ta+'&pt='+p.pt+'&rm='+p.rm+'&tokey='+p.tokey+'&suid='+p.suid+'&code='+p.code);
+                    var s0 = document.getElementsByTagName('script')[0];
+                    s0.parentNode.insertBefore(s, s0);
+                });
+        });
     </script>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen">
