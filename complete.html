@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お申し込みありがとうございました - Invy紹介システム</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript">
+        function getUrlParameter(name) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name) || '';
+        }
+      
+        var p = { ci:'spyder1211',mi:'invy_register', ta:'', pt:'', rm:'', tokey: getUrlParameter('tokey'), suid: getUrlParameter('suid'), code: getUrlParameter('code') };
+        var s = document.createElement("img");
+        s.async = true;
+        s.src = encodeURI('//stg.invy.jp/rest/report/addcv?ci='+p.ci+'&mi='+p.mi+'&ta='+p.ta+'&pt='+p.pt+'&rm='+p.rm+'&tokey='+p.tokey+'&suid='+p.suid+'&code='+p.code);
+        var s0 = document.getElementsByTagName('script')[0];
+        s0.parentNode.insertBefore(s, s0);
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl w-full space-y-8">
+            <!-- Main Success Message -->
+            <div class="text-center">
+                <!-- Success Icon -->
+                <div class="mx-auto flex items-center justify-center h-24 w-24 rounded-full bg-green-100 mb-6">
+                    <svg class="h-12 w-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 48 48">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                
+                <!-- Thank You Message -->
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    お申し込みありがとうございました
+                </h1>
+                <p class="text-lg text-gray-600 mb-8">
+                    Invy紹介システムへのお申し込みが完了いたしました。<br>
+                    担当者より順次ご連絡いたします。
+                </p>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">今後の流れ</h2>
+                
+                <div class="space-y-6">
+                    <!-- Step 1 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                <span class="text-white font-semibold text-sm">1</span>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">担当者からのご連絡</h3>
+                            <p class="text-gray-600">
+                                24時間以内に担当者よりお電話またはメールにてご連絡いたします。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                <span class="text-white font-semibold text-sm">2</span>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">ヒアリング・面談</h3>
+                            <p class="text-gray-600">
+                                お客様のご希望や条件について詳しくお聞かせください。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                <span class="text-white font-semibold text-sm">3</span>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">最適な紹介先のご提案</h3>
+                            <p class="text-gray-600">
+                                お客様に最適な転職先・求人をご紹介いたします。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">お困りの際はお気軽にご連絡ください</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">お電話でのお問い合わせ</h3>
+                        <p class="text-blue-600 font-semibold">03-0000-0000</p>
+                        <p class="text-gray-600 text-sm">平日 9:00-18:00</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-3">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-gray-800 mb-1">メールでのお問い合わせ</h3>
+                        <p class="text-blue-600 font-semibold">support@invy.co.jp</p>
+                        <p class="text-gray-600 text-sm">24時間受付</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Message -->
+            <div class="text-center">
+                <p class="text-gray-600">
+                    この度は、Invy紹介システムをご利用いただき、誠にありがとうございます。<br>
+                    皆様の転職成功に向けて全力でサポートいたします。
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
