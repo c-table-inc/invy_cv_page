@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お申し込みありがとうございました - Invy紹介システム</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        $(document).ready(function(){
+          $.get('/rest/report/addto/spyder1211');
+                var date1 = new Date();
+                var date2 = null;
+                var t1 = date1.getTime();
+                var t2 = 0;
+                var sleep = 0;
+                while(sleep <= 500){
+                    date2 = new Date();
+                    t2 = date2.getTime();
+                    sleep = t2 - t1;
+                }
+          });
+      </script>
     <script type="text/javascript">
         function getUrlParameter(name) {
             var urlParams = new URLSearchParams(window.location.search);
