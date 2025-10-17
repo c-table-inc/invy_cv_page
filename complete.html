@@ -10,20 +10,41 @@
             var urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name) || '';
         }
-
-        document.addEventListener('DOMContentLoaded', function () {
+        
+        function executeTracking() {
             // First call addto
-            fetch('//stg.invy.jp/rest/report/addto/spyder1211', { method: 'GET', mode: 'no-cors' })
-                .finally(function() {
-                    // Call addcv after addto (regardless of success or failure)
-                    setTimeout(function() {
-                        var p = { ci:'spyder1211',mi:'invy_register', ta:'', pt:'', rm:'', tokey: getUrlParameter('tokey'), suid: getUrlParameter('suid'), code: getUrlParameter('code') };
-                        var s = document.createElement("img");
-                        s.src = encodeURI('//stg.invy.jp/rest/report/addcv?ci='+p.ci+'&mi='+p.mi+'&ta='+p.ta+'&pt='+p.pt+'&rm='+p.rm+'&tokey='+p.tokey+'&suid='+p.suid+'&code='+p.code);
-                        document.body.appendChild(s);
-                    }, 500);
-                });
-        });
+            fetch('//stg.invy.jp/rest/report/addto/spyder1211', {
+                method: 'GET',
+                mode: 'no-cors'
+            })
+            .finally(function() {
+                // Call addcv after addto (regardless of success or failure)
+                setTimeout(function() {
+                    var p = {
+                        ci:'spyder1211',
+                        mi:'invy_register',
+                        ta:'',
+                        pt:'',
+                        rm:'',
+                        tokey: getUrlParameter('tokey'),
+                        suid: getUrlParameter('suid'),
+                        code: getUrlParameter('code')
+                    };
+                    var s = document.createElement("img");
+                    s.src = encodeURI('//stg.invy.jp/rest/report/addcv?ci='+p.ci+'&mi='+p.mi+'&ta='+p.ta+'&pt='+p.pt+'&rm='+p.rm+'&tokey='+p.tokey+'&suid='+p.suid+'&code='+p.code);
+                    document.body.appendChild(s);
+                }, 500);
+            });
+        }
+        
+        // DOMContentLoadedが既に発火しているかチェック
+        if (document.readyState === 'loading') {
+            // まだ読み込み中の場合はイベントリスナーを登録
+            document.addEventListener('DOMContentLoaded', executeTracking);
+        } else {
+            // 既に読み込み完了している場合は即座に実行
+            executeTracking();
+        }
     </script>
 </head>
 <body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen">
