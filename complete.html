@@ -12,36 +12,19 @@
         }
         
         document.addEventListener('DOMContentLoaded', function () {
-            // First call addto using XMLHttpRequest with absolute path
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', '//stg.invy.jp/rest/report/addto/spyder1211', true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    // Synchronous wait (same as original script)
-                    var date1 = new Date();
-                    var t1 = date1.getTime();
-                    var sleep = 0;
-                    while (sleep <= 500) {
-                        var date2 = new Date();
-                        sleep = date2.getTime() - t1;
-                    }
-                    
-                     var p = {
-                         ci:'spyder1211',
-                         mi: new Date().toISOString(),
-                         ta:'',
-                         pt:'',
-                         rm:'',
-                         tokey: getUrlParameter('tokey'),
-                         suid: getUrlParameter('suid'),
-                         code: getUrlParameter('code')
-                     };
-                    var s = document.createElement("img");
-                    s.src = encodeURI('//stg.invy.jp/rest/report/addcv?ci='+p.ci+'&mi='+p.mi+'&ta='+p.ta+'&pt='+p.pt+'&rm='+p.rm+'&tokey='+p.tokey+'&suid='+p.suid+'&code='+p.code);
-                    document.body.appendChild(s);
-                }
+            var p = {
+                ci:'spyder1211',
+                mi: new Date().toISOString(),
+                ta:'',
+                pt:'1',
+                rm:'BOTCHAN',
+                tokey: getUrlParameter('tokey'),
+                suid: getUrlParameter('suid'),
+                code: getUrlParameter('code')
             };
-            xhr.send();
+            var s = document.createElement("img");
+            s.src = encodeURI('//stg.invy.jp/rest/report/addcv?ci='+p.ci+'&mi='+p.mi+'&ta='+p.ta+'&pt='+p.pt+'&rm='+p.rm+'&tokey='+p.tokey+'&suid='+p.suid+'&code='+p.code);
+            document.body.appendChild(s);
         });
     </script>
 </head>
